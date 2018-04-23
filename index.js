@@ -1,8 +1,11 @@
 'use strict';
 
 const express = require('express');
+const router = express.Router();
 const cors = require('cors');
 const morgan = require('morgan');
+const { Recipe } = require('./model');
+const {recipes} =require('./recipes');
 
 const { PORT, CLIENT_ORIGIN } = require('./config');
 const { dbConnect } = require('./db-mongoose');
@@ -21,6 +24,21 @@ app.use(
     origin: CLIENT_ORIGIN
   })
 );
+
+app.get('/api/recipes', (req, res) => {
+  Recipe.find()
+    .then(sharerecipes => {
+      res.json(recipes);
+      //recipes:recipes
+      //recipes: recipes.map( recipe => recipe.apiRepr())
+    
+    })  
+    .catch(err =>{
+      console.log(err);
+      return res.status(500).json({ message: 'Internal server error'});
+    });
+});
+
 
 function runServer(port = PORT) {
   const server = app
