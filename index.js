@@ -5,7 +5,7 @@ const router = express.Router();
 const cors = require('cors');
 const morgan = require('morgan');
 const { Recipe } = require('./model');
-const {recipes} =require('./recipes');
+//const {recipes} =require('./recipes');
 
 const { PORT, CLIENT_ORIGIN } = require('./config');
 const { dbConnect } = require('./db-mongoose');
@@ -27,7 +27,7 @@ app.use(
 
 app.get('/api/recipes', (req, res) => {
   Recipe.find()
-    .then(sharerecipes => {
+    .then(recipes => {
       res.json(recipes);
       //recipes:recipes
       //recipes: recipes.map( recipe => recipe.apiRepr())
