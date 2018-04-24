@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const recipeSchema = mongoose.Schema({
-  name: { type: String },
+  name: { type: String, required: true },
   created: { type: Date, default: Date.now },
   author: { type: String, required: true },
   type: { type: String },

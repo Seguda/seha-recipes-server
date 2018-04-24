@@ -8,14 +8,19 @@ const { Recipe } = require('./../models');
 
 
 router.get('/', (req, res, next) => {
+  const{ searchTerm } = req.query;
+  let filter={};
+  if(searchTerm) {
+    const re = new RegExp(searchTerm, 'e');
+    filter.name = { $regex: re };
+  }
   Recipe
-    .find()
+    .find(filter)
+    .sort('created')
     .exec()
     .then(recipes => {
       res.json(recipes);
-    //   res.json({
-    //     recipes: recipes.map( recipe => recipe.aprRepr() )
-    //   });
+   
     })
     .catch(err=> next(err));
     
