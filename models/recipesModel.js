@@ -21,7 +21,16 @@ recipeSchema.methods.apiRepr = function () {
     name: this.name,
   };
 };
+recipeSchema.set('toObject', {
+  transform: function (doc, ret) {
+    ret.id = ret._id;
+    delete ret._id;
+    delete ret.__v;
+  }
+});
+
 
 const Recipe = mongoose.model('Recipe', recipeSchema);
 
 module.exports = { Recipe };
+

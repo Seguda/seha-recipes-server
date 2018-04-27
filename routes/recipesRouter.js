@@ -58,4 +58,19 @@ router.post('/', jsonParser, (req, res) => {
       return res.status(err.code).json(err);
     });
 });
+
+router.delete('/:id', (req, res, next) => {
+  const { id } = req.params;
+
+  Recipe.findByIdAndRemove(id)
+    .then(() => {
+      res.status(204).end();
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
+
+
 module.exports = { router };
