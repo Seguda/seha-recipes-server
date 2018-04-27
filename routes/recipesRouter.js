@@ -26,7 +26,7 @@ router.get('/', (req, res, next) => {
     
 });
 router.post('/', jsonParser, (req, res) => {
-  const requiredFields = ['name', 'author', 'type', 'ethnicity', 'servings','ingredients', 'directions', 'image'];
+  const requiredFields = ['name', 'author', 'type', 'ethnicity', 'servings','ingredients', 'directions'];
   const missingField = requiredFields.find(field => !(field in req.body));
 
   if (missingField) {
@@ -50,8 +50,8 @@ router.post('/', jsonParser, (req, res) => {
     directions,
     image
   })
-    .then(() => {
-      return res.status(201);
+    .then((recipe) => {
+      return res.status(201).json(recipe);
     })
     .catch(err => {
       console.log(err);
