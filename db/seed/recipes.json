@@ -1,4 +1,5 @@
-{
+[
+  {
   "name": "Eclair",
   "author": "Sam Smith",
   "type": "dessert",
@@ -11,9 +12,8 @@
     "yeast"
   ],
   "directions": "Lorem Ipsum",
-  "image": "http://"
-}
-
+  "downloadUrl": "http://"
+},
 {
   "name": "Choclate Cake",
   "author": "John Smith",
@@ -26,12 +26,11 @@
     "milk"
   ],
   "directions": "Lorem Ipsum",
-  "image": "http://"
-}
-
+  "downloadUrl": "http://"
+},
 {
-  "name": "Tiramisu",
-  "author": "Jane",
+  "name": "Cake",
+  "author": "James",
   "type": "dessert",
   "ethnicity": "Italian",
   "servings": 4,
@@ -42,5 +41,21 @@
     "coffee"
   ],
   "directions": "Lorem Ipsum",
-  "image": "http://"
+  "downloadUrl": "http://"
+},
+{
+"name": "ice cream",
+"author": "Jane",
+"type": "dessert",
+"ethnicity": "Italian",
+"servings": 4,
+"ingredients": [
+  "flour",
+  "choclate",
+  "milk",
+  "coffee"
+],
+"directions": "Lorem Ipsum",
+"downloadUrl": "http://"
 }
+]

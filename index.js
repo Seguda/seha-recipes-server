@@ -11,7 +11,7 @@ const fileUpload = require('express-fileupload');
 mongoose.Promise = global.Promise;
 
 const { PORT, CLIENT_ORIGIN, DATABASE_URL } = require('./config');
-const { recipesRouter } = require('./routes');
+const recipesRouter = require('./routes/recipesRouter');
 
 
 const app = express();

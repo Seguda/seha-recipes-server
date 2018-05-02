@@ -10,15 +10,14 @@ const recipeSchema = mongoose.Schema({
   type: { type: String },
   ethnicity: { type: String },
   servings: { type: Number },
-  ingredients: [String],
+  ingredients: [{type:String}],
   directions: { type: String, required: true },
   downloadUrl: { type: String }
 });
 
 recipeSchema.methods.apiRepr = function () {
   return {
-    id: this._id,
-    name: this.name,
+    id: this._id
   };
 };
 recipeSchema.set('toObject', {
@@ -30,7 +29,6 @@ recipeSchema.set('toObject', {
 });
 
 
-const Recipe = mongoose.model('Recipe', recipeSchema);
+module.exports  = mongoose.model('Recipe', recipeSchema);
 
-module.exports = { Recipe };
 

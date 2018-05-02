@@ -4,30 +4,33 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
-const { Recipe } = require('./../models');
+const Recipe  = require('../models/recipesModel');
 
 
 router.get('/', (req, res, next) => {
   const { searchTerm } = req.query;
   let filter = {};
   if (searchTerm) {
-    const re = new RegExp(searchTerm, 'e');
+    const re = new RegExp(searchTerm, 'i');
     filter.name = { $regex: re };
   }
   Recipe
     .find(filter)
     .sort('created')
     .exec()
-    .then(recipes => {
-      res.json(recipes);
+    .then(results => {
+      res.json(results);
 
     })
     .catch(err => next(err));
 
 });
+
+
 router.post('/', jsonParser, (req, res) => {
-/*
-  const requiredFields = ['file', 'name', 'author', 'type', 'ethnicity', 'servings', 'ingredients', 'directions'];
+  const { name, author, type, ethnicity, servings, ingredients, directions} = req.body;
+  
+  const requiredFields = ['name', 'author', 'type', 'ethnicity', 'servings', 'ingredients', 'directions'];
   const missingField = requiredFields.find(field => !(field in req.body));
 
   if (missingField) {
@@ -38,30 +41,24 @@ router.post('/', jsonParser, (req, res) => {
       location: missingField
     });
   }
-*/
-  let { name, author, type, ethnicity, servings, ingredients, directions } = req.body;
+
+  //let { name, author, type, ethnicity, servings, ingredients, directions } = req.body;
 
   var downloadUrl = `static/${req.files.file.name}`;
   var imageUrl = `userimages/${req.files.file.name}`;
-
+  
   var file = req.files.file;
-
+ 
   file.mv(imageUrl, function (err) {
     console.log(err);
   });
 
-  return Recipe.create({
-    name,
-    author,
-    type,
-    ethnicity,
-    servings,
-    ingredients,
-    directions,
-    downloadUrl
-  }).then((recipe) => {
-    return res.status(201).json(recipe);
-  })
+  const newItem = { downloadUrl, name, author, type, ethnicity, servings, ingredients, directions};
+ 
+  return Recipe.create(newItem) 
+    .then((results) => {
+      return res.status(201).json(results);
+    })
     .catch(err => {
       console.log(err);
       return res.status(err.code).json(err);
@@ -97,6 +94,4 @@ router.delete('/:id', (req, res, next) => {
     });
 });
 
-
-
-module.exports = { router };
+module.exports = router;
