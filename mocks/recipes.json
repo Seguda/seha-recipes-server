@@ -13,6 +13,22 @@
   "directions": "Lorem Ipsum",
   "image": "http://"
 }
+
+{
+  "name": "Choclate Cake",
+  "author": "John Smith",
+  "type": "dessert",
+  "ethnicity": "French",
+  "servings": 4,
+  "ingredients": [
+    "flour",
+    "choclate",
+    "milk"
+  ],
+  "directions": "Lorem Ipsum",
+  "image": "http://"
+}
+
 {
   "name": "Tiramisu",
   "author": "Jane",
@@ -24,20 +40,6 @@
     "choclate",
     "milk",
     "coffee"
-  ],
-  "directions": "Lorem Ipsum",
-  "image": "http://"
-}
-{
-  "name": "Choclate Cake",
-  "author": "John Smith",
-  "type": "dessert",
-  "ethnicity": "French",
-  "servings": 4,
-  "ingredients": [
-    "flour",
-    "choclate",
-    "milk"
   ],
   "directions": "Lorem Ipsum",
   "image": "http://"

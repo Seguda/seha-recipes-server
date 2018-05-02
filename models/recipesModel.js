@@ -12,7 +12,7 @@ const recipeSchema = mongoose.Schema({
   servings: { type: Number },
   ingredients: [String],
   directions: { type: String, required: true },
-  image: { type: String }
+  downloadUrl: { type: String }
 });
 
 recipeSchema.methods.apiRepr = function () {
