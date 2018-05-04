@@ -12,4 +12,5 @@ module.exports = {
   // JWT_EXPIRY:
   //   process.env.JWT_EXPIRY || '7d'
 
+  
 };
