@@ -38,7 +38,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/recipes', recipesRouter);
-app.use('/static', express.static('userimages'));
+app.use('/static', express.static('images'));
 
 let server;
 
