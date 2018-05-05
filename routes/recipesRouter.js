@@ -44,8 +44,8 @@ router.post('/', jsonParser, (req, res) => {
 
   //let { name, author, type, ethnicity, servings, ingredients, directions } = req.body;
 
-  var downloadUrl = `static/${req.files.file.name}`;
-  var imageUrl = `userimages/${req.files.file.name}`;
+  var downloadUrl = `images/${req.files.file.name}`;
+  var imageUrl = `images/${req.files.file.name}`;
   
   var file = req.files.file;
  
