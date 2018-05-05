@@ -6,7 +6,7 @@ module.exports = {
   DATABASE_URL:process.env.DATABASE_URL || 'mongodb://localhost/recipes-app',
   TEST_DATABASE_URL:
     process.env.TEST_DATABASE_URL ||
-    'mongodb://localhost/test-brewbook',
+    'mongodb://localhost/test-recipes-app',
   // JWT_SECRET:
   //   process.env.JWT_SECRET,
   // JWT_EXPIRY:
