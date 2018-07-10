@@ -17,7 +17,7 @@ The Minimum Viable Product:
 * If user doesn't have a picture there is a default picture that will be used by app.
 * Search box to allow users to search the recipes from database.
 ### Link to Deployed Version ###
-***https://elastic-brown-9b73b0.netlify.com/***
+***https://shareyouryummies.netlify.com/***
 ### Screenshots ###
 #### Home Page ####
 ![alt](https://github.com/thinkful-ei19/seha-recipes-client/blob/master/src/assets/home.png)
